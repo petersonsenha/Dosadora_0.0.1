@@ -4,6 +4,7 @@
 #include <SPI.h>
 #include <SD.h>
 #include <RTClib.h>
+#include <EEPROM.h>
 #define RELE_01 0x01
 
 int maquina = EEPROM.read(0x00);
@@ -69,6 +70,7 @@ class Armazenador {
 class SDCARD {
   private:
     File myFile;
+    
     bool initialized = false;
 
   public:

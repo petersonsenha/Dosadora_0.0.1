@@ -1,9 +1,9 @@
-
-#include <HTTPClient.h>
-#include <WiFi.h>
+/*
+//#include <HTTPClient.h>
+//#include <WiFi.h>
 #include "string.h"
-#include <NTPClient.h>
-#include <WiFiUdp.h>
+//#include <NTPClient.h>
+//#include <WiFiUdp.h>
 
 // Configurações Wi-Fi
 //const char* ssid = "everton";      // your network SSID (name of wifi network)
@@ -13,12 +13,15 @@
 //const char* password = "05208656930";  // your network password
 
 // Configurações Wi-Fi
-const char* ssid = "UTFPRWEB";      // your network SSID (name of wifi network)
-const char* password = "PeRaYv12";  // your network password
+//const char* ssid = "UTFPRWEB";      // your network SSID (name of wifi network)
+//const char* password = "PeRaYv12";  // your network password
+const char* ssid = "SMD Corps";      // your network SSID (name of wifi network)
+const char* password = "TomFuckingBrady12@#";  // your network password
+
 const int httpsPort = 443;
-WiFiClientSecure client;
-WiFiUDP ntpUDP;
-NTPClient timeClient(ntpUDP);
+//WiFiClientSecure client;
+//WiFiUDP ntpUDP;
+//NTPClient timeClient(ntpUDP);
 //******************************************************************************************************************************
 //URL : https://script.google.com/macros/s/AKfycbwvabCP14jaApvPVhN1DrqjZrurUu2J_Nst4HIWjFIlxgWVw61eYhj9r0MTUomgR4YTRQ/exec
 char* server = "script.google.com";  // Server URL
@@ -26,9 +29,8 @@ char* server = "script.google.com";  // Server URL
 char* GScriptId = "AKfycbxOqCBqH1kZHcO-KzjKb7gAGRgIDmYPLMlkbDrXrqJXYD0C5ixxjF0V4yTFKG3TjYIWfw";
 //******************************************************************************************************************************
 
-#include <WiFi.h>
-#include "time.h"
-#include "sntp.h"
+//#include "time.h"
+//#include "sntp.h"
 
 //const char* ssid       = "UTFPRWEB";
 //const char* password   = "PeRaYv12";
@@ -50,12 +52,8 @@ void printLocalTime()
   //Serial.println(&timeinfo, "%A, %B %d %Y %H:%M:%S");
   Serial.println(&timeinfo, "%d %Y %H:%M:%S");
   
-  //Data = String(timeinfo.tm_mday)+"/" + String(timeinfo.tm_mon)+"/"+String(timeinfo.tm_mday)+" - "+String(timeinfo.tm_hour)+":"+String(timeinfo.tm_min)+":"+String(timeinfo.tm_sec);
+  String Data = String(timeinfo.tm_mday)+"/" + String(timeinfo.tm_mon)+"/"+String(timeinfo.tm_mday)+" - "+String(timeinfo.tm_hour)+":"+String(timeinfo.tm_min)+":"+String(timeinfo.tm_sec);
   
-  Data = timeinfo.tm_hour*3600+timeinfo.tm_min*60+timeinfo.tm_sec;
-  DataDiff=Data-DataLast;
-  DataLast=Data;
-  DataCount++;
   Serial.println(Data);
 }
 
@@ -64,7 +62,7 @@ void timeavailable(struct timeval *t)
 {
   Serial.println("Got time adjustment from NTP!");
   printLocalTime();
-  pinoAcionamento=0;
+  //pinoAcionamento=0;
   //enviarPulsoWIFI(1);
   hmi.beepHMI();
   //hmi.setPage(0);
@@ -85,14 +83,14 @@ void setupTime()
    * NOTE: configTime() function call if made AFTER DHCP-client run
    * will OVERRIDE aquired NTP server address
    */
-  sntp_servermode_dhcp(1);    // (optional)
+  //sntp_servermode_dhcp(1);    // (optional)
 
   /**
    * This will set configured ntp servers and constant TimeZone/daylightOffset
    * should be OK if your time zone does not need to adjust daylightOffset twice a year,
    * in such a case time adjustment won't be handled automagicaly.
    */
-  configTime(gmtOffset_sec, daylightOffset_sec, ntpServer1, ntpServer2);
+  //configTime(gmtOffset_sec, daylightOffset_sec, ntpServer1, ntpServer2);
 
   /**
    * A more convenient approach to handle TimeZones with daylightOffset 
@@ -109,5 +107,4 @@ void setupTime()
   //    Serial.print(".");
   //}
   //Serial.println(" CONNECTED");
-
-}
+//}

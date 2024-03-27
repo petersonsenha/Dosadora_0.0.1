@@ -232,27 +232,28 @@ void MEF() {
   if(changedPage()){
     Serial.println("Mudou para :" + String(lastPage));
     if(lastPage==16){
-      Receita1();
+      //Receita_1();
+      hmi.beepHMI();
       hmi.setPage(3);
     }
     if(lastPage==17){
-      Receita2();
+      //Receita_2();
       hmi.setPage(3);
     }
     if(lastPage==18){
-      Receita3();
+      //Receita_3();
       hmi.setPage(3);
     }
     if(lastPage==19){
-      Receita4();
+      //Receita_4();
       hmi.setPage(3);
     }
     if(lastPage==20){
-      Receita5();
+      //Receita_5();
       hmi.setPage(3);
     }
     if(lastPage==21){
-      Receita6();
+      //Receita_6();
       hmi.setPage(3);
     }    
   }
@@ -262,7 +263,7 @@ void MEF() {
   }
   if (changedState) {
     Serial.println("Estado : " + String(ST.atual));
-
+    
     if (state == ST.atual) {
       changedState = 0;
     } else {
@@ -345,15 +346,19 @@ void configAll(){
   attachInterrupt(digitalPinToInterrupt(18), contarFluxo, CHANGE);
   Valvula1.setMode(0);
   hmi.setPage(2);
+  hmi.setBrightness(50);
+  //setupImpressora();
+  //checkImprimir();
   //Fluxo1.begin(39);
   //ESP32
   //Valvula1.begin(25,1);
   //Bomba1.begin(26);
   //pinMode(39,INPUT);      //Sensor de Fluxo
+  //attachInterrupt(digitalPinToInterrupt(39), contarFluxo, CHANGE);
   //Fluxo1.begin(39);
   //MNivel1.begin();
   //Impressora1.begin();
   
-  //setupNFC();
+  setupNFC();
   //setupWiFiManager();
 }

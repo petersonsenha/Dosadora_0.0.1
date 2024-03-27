@@ -10,6 +10,6 @@ class SensorFluxo {
 };
 SensorFluxo Fluxo1;
 
-void contarFluxo(){
+void contarFluxo(){//
   contPulse++;
 }

@@ -9,10 +9,12 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   //Serial.println("oimoanoite");
-  receberSerial();
-  //MEF();
+  //receberSerial();
+  hmi.listen();
+  MEF();
+  //Receita_1();
   //loopNFC();
-  leituraStandBy();
+  //leituraStandBy();
   //server.handleClient();
   //Bomba1.Dosar(10);
 }

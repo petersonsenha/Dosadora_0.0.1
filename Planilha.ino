@@ -1,3 +1,4 @@
+/*
 void connect_wifi(void)
 {  
   Serial.print("Connecting to wifi: ");
@@ -13,7 +14,7 @@ void connect_wifi(void)
   WiFi.begin(SSID_old, PSWD_old);
   //WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED)
-  {
+  {zzzzz
     delay(500);
     Serial.print(WiFi.status());
     Serial.print(".");
@@ -83,3 +84,4 @@ void enviarPulsoWIFI(int pinoAcionamento, long _DataDiff)
   envioFlag=true;
   //return true;
 }
+*/

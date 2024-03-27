@@ -36,6 +36,19 @@
 #define TELA_RESERVATORIO_VAZIO 3
 #define TELA_INICIAR 2
 #define TELA_DOSANDO 4
+
+// Event Occurs when response comes from HMI
+void onHMIEvent(String address, int lastByte, String message, String response){  
+  Serial.println("OnEvent : [ A : " + address + " | D : "+ String(lastByte, HEX)+ " | M : "+message+" | R : "+response+ " ]"); 
+  if (address == "1010"){
+  // Take your custom action call
+    Serial.println("Foi acionada uma receita");
+    hmi.beepHMI();
+    delay(1000);
+    hmi.setPage(3);
+  }
+}
+
 void setupDWIN(){
   Serial.println("DWIN HMI ~ Hello World");
   hmi.echoEnabled(true);
@@ -46,8 +59,8 @@ void setupDWIN(){
   hmi.beepHMI();
   hmi.setRTC(23, 0x07, 21, 0x00, 40, 55);
 }
-
-/*class DWIN{
+/*
+class DWIN{
   private:
     #define Tela_00 0x50
     int recebidoInt;

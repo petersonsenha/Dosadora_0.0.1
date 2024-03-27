@@ -106,5 +106,5 @@ void setupValvulas(){
   Serial.println(Valvula1.getAction());
 }
 void setarAcoes(){
-    Valvula1.setAction(0);
+  Valvula1.setAction(0);
 }

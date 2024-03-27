@@ -85,10 +85,9 @@ const char* serverIndex =
  "});"
  "</script>";
 
-/*
- * setup function
- 
 
+// * setup function
+/*
 void setupWiFiManager(){
   WiFiManager wm;
   bool res;

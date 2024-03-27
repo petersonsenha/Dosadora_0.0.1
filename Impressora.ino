@@ -30,14 +30,14 @@ void setupImpressora() {
   if (uprinter.isReady()) {
     printer.begin();
   }
-  printer.set80mm();
+  //printer.set80mm();
   
 }
 void loopImpressora() {
   myusb.Task();
 }
 
-void imprimirReceita(String _nomeReceita, int _numeroReceita, int _diluicaoPPM, float _diluicaoPorcentagem, int _volumeTotal, String _nomeFuncionário, int _codigoFuncionario, ) {
+void imprimirReceita(String _nomeReceita, int _numeroReceita, int _diluicaoPPM, float _diluicaoPorcentagem, int _volumeTotal, String _nomeFuncionario, int _codigoFuncionario, int _produtoCodigo, int _codigoDosagem) {
   Serial.println(F("Init ESC POS printer"));
   //printer.setSize('L');   // L for large
   printer.println(F("Clean Health - DVH - Engenheiro Peterson Senha"));
@@ -50,5 +50,20 @@ void imprimirReceita(String _nomeReceita, int _numeroReceita, int _diluicaoPPM, 
   printer.println(F("Data -> 26/08/2023"));
   printer.println(F("Horario -> 15:21"));
   printer.feedRows(255);
-  printer.fullCutt();
+  //printer.fullCutt();
+}
+void checkImprimir(){
+  Serial.println(F("Init ESC POS printer"));
+  //printer.setSize('L');   // L for large
+  printer.println(F("Clean Health - DVH - Engenheiro Peterson Senha"));
+  printer.println(F("PERACETIC FOOD"));
+  printer.println(F("Receita -> 1"));
+  printer.println(F("Diluicao ->  1 : 100 - 2.00%"));
+  printer.println(F("Volume Total -> 1000 mL"));
+  printer.println(F("Funcionario -> Filipe Richter"));
+  printer.println(F("Codigo -> 7018"));
+  printer.println(F("Data -> 26/08/2023"));
+  printer.println(F("Horario -> 15:21"));
+  printer.feedRows(255);
+  //printer.fullCutt();
 }
